@@ -9,6 +9,7 @@ PREPEND_SUMMARY_CATEGORIES = [
   "awards",
   "publications"
 ];
+const formatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 function validateArray(arr) {
   return arr !== undefined && arr !== null && arr instanceof Array && arr.length > 0;
@@ -34,6 +35,16 @@ function render(resume) {
         block.courses = splitCourses;
       }
     });
+  }
+  if (resume.work.length) {
+    resume.work.forEach(work => {
+      if (work.startDate) {
+        work.startDate = formatter.format(new Date(work.startDate))
+      }
+      if (work.endDate) {
+        work.endDate = formatter.format(new Date(work.endDate))
+      }
+    })
   }
 
   PREPEND_SUMMARY_CATEGORIES.forEach(function(category) {
