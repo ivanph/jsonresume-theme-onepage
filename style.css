@@ -73,6 +73,7 @@ a {
 
 .sectionContent .date {
   float: right;
+  font-weight: bold;
 }
 
 .sectionContent .separator {
