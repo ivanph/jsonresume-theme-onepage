@@ -16,7 +16,7 @@ function validateArray(arr) {
 
 function render(resume) {
   // Split courses into 3 columns
-  if (validateArray(resume.education)) {
+  if (resume.education != null && validateArray(resume.education)) {
     resume.education.forEach(function(block) {
       if (validateArray(block.courses)) {
         splitCourses = [];
