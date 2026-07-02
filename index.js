@@ -46,6 +46,16 @@ function render(resume) {
       }
     })
   }
+  if (resume.education != null && validateArray(resume.education)) {
+    resume.education.forEach(edu => {
+      if (edu.startDate) {
+        edu.startDate = formatter.format(new Date(edu.startDate))
+      }
+      if (edu.endDate) {
+        edu.endDate = formatter.format(new Date(edu.endDate))
+      }
+    })
+  }
 
   PREPEND_SUMMARY_CATEGORIES.forEach(function(category) {
     if (resume[category] !== undefined) {
