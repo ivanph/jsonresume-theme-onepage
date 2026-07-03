@@ -17,5 +17,8 @@
   },
   "homepage": "https://github.com/ainsleychong/jsonresume-theme-onepage",
   "main": "index.js",
+  "pdfRenderOptions": {
+    "mediaType": "print"
+  },
   "devDependencies": {}
 }
